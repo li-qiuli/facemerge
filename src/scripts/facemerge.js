@@ -1,3 +1,9 @@
+/**
+ * 脸部融合
+ * @template_url :融合模版
+ * @merge_url ：融合图片
+ * @merge_rate ：融合度
+ */
 const $ = require("jquery");
 class FaceMerge {
     constructor(option) {
@@ -9,7 +15,7 @@ class FaceMerge {
         this.merge_url = this.options.merge_url;
         this.merge_rate = this.options.merge_rate;
     }
-    ajax() {
+    getMergeImg() {
         let _this=this;
         let params = {
             'api_key': 'Igeuu3TuNOvn3nmWCrolUKa0O8HVIh3w',
@@ -36,6 +42,7 @@ class FaceMerge {
         });
         return p;
     }
+    // 对返回的错误信息进行加工
     packagingErrorMessages(error) {
         let errorMessage={
             readystate:error.readyState,

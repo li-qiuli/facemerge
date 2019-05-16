@@ -12,8 +12,14 @@ let options = {
 let faceMerge = new faceMerges(
     options
 );
-faceMerge.ajax().then(data => {
+faceMerge.getMergeImg().then(data => {
     showImg[0].src = 'data:image/png;base64,' + data.result;
 }).catch(error=>{
     console.log(1111, error);
 });
+
+import faceMerges2 from './facemergebyaxios';
+let faceMerge2 = new faceMerges2(
+    options
+);
+faceMerge2.getMergeImg();
