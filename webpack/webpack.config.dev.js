@@ -10,7 +10,16 @@ module.exports = merge(common, {
     chunkFilename: 'js/[name].chunk.js'
   },
   devServer: {
-    inline: true
+    inline: true,
+    proxy: {
+      '/services': {
+        target: 'https://test.epub360.com/v2/manage/book/usiit5/services/',
+        changeOrigin:true,
+        pathRewrite:{},
+        // pathRewrite: {'/v2/manage/book/usiit5/services/'},
+        secure: false
+      }
+    }
   },
   plugins: [
     new Webpack.DefinePlugin({
@@ -18,8 +27,7 @@ module.exports = merge(common, {
     })
   ],
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js)$/,
         include: Path.resolve(__dirname, '../src'),
         enforce: 'pre',

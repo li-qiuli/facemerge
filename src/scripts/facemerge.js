@@ -1,8 +1,10 @@
 /**
  * 脸部融合
- * @template_url :融合模版
- * @merge_url ：融合图片
- * @merge_rate ：融合度
+ * @param {string} template_url :融合模版
+ * @param {string} merge_url ：融合图片
+ * @param {number} merge_rate ：融合度
+ * @example new FaceMerge.getMergeImg('模版url','图片url')=>base64图片
+ * @returns {string} 
  */
 const $ = require("jquery");
 class FaceMerge {
